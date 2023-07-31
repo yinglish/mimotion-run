@@ -234,6 +234,7 @@ if __name__ == "__main__":
         #with open(os.path.join(os.path.dirname(os.path.dirname(__file__)), "/root/config.json"), "r", encoding="utf-8") as f:
         #datas = json.loads(f.read())
         datas = json.loads(os.environ["CONFIG"])
+        print(datas)
         # 开启根据地区天气情况降低步数（默认关闭）
         if datas.get("OPEN_GET_WEATHER"):
             open_get_weather = datas.get("OPEN_GET_WEATHER")
@@ -251,9 +252,9 @@ if __name__ == "__main__":
             qweather = "False"
         msg = ""
         for i in range(len(datas.get("MIMOTION", []))):
-            #print(i)
+            print(i)
             _check_item = datas.get("MIMOTION", [])[i]
-            #print(_check_item)
+            print(_check_item)
             msg += MiMotion(check_item=_check_item).main()
         print(msg)
         # 酷推skey和server酱sckey和企业微信设置，只用填一个其它留空即可
