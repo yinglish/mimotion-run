@@ -151,8 +151,11 @@ class MiMotion():
 
     def main(self):
         try:
+            print("in main")
             user = str(self.check_item.get("user"))
+            print(user)
             password = str(self.check_item.get("password"))
+            print(password)
             hea = {'User-Agent': 'Mozilla/5.0'}
             url = r'https://apps.game.qq.com/CommArticle/app/reg/gdate.php'
             r = requests.get(url=url, headers=hea)
@@ -255,7 +258,9 @@ if __name__ == "__main__":
             print(i)
             _check_item = datas.get("MIMOTION", [])[i]
             print(_check_item)
+            print("for loop iteration begin")
             msg += MiMotion(check_item=_check_item).main()
+            print("for loop iteration end")
         print(msg)
         # 酷推skey和server酱sckey和企业微信设置，只用填一个其它留空即可
         if datas.get("SKEY"):
