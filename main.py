@@ -159,6 +159,7 @@ class MiMotion():
             hea = {'User-Agent': 'Mozilla/5.0'}
             url = r'https://apps.game.qq.com/CommArticle/app/reg/gdate.php'
             r = requests.get(url=url, headers=hea)
+            print(r)
             if r.status_code == 200:
                 result = r.text
                 pattern = re.compile('\\d{4}-\\d{2}-\\d{2} (\\d{2}):\\d{2}:\\d{2}')
@@ -176,6 +177,7 @@ class MiMotion():
             return
         try:
             min_step = math.ceil(int(self.check_item.get("min_step", 10000))*step_ratio)
+            print(min_step)
         except Exception as e:
             print("初始化步数失败: 已将最小值设置为 19999", e)
             min_step = 10000
