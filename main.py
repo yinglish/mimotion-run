@@ -158,6 +158,8 @@ class MiMotion():
             print(password)
             hea = {'User-Agent': 'Mozilla/5.0'}
             url = r'https://apps.game.qq.com/CommArticle/app/reg/gdate.php'
+            print(hea)
+            print(url)
             r = requests.get(url=url, headers=hea)
             print(r)
             if r.status_code == 200:
