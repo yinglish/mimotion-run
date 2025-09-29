@@ -109,16 +109,26 @@ class MiMotion():
 
             r1 = requests.post(url=url1, data=data1, headers=headers, allow_redirects=False)
             print(r1)
-            location = r1.headers["Location"]
-            print(location)
-            code_pattern = re.compile("(?<=access=).*?(?=&)")
-            code = code_pattern.findall(location)[0]
+            print(r1.headers)
+            # location = r1.headers["Location"]
+            # print(location)
+            # code_pattern = re.compile("(?<=access=).*?(?=&)")
+            # code = code_pattern.findall(location)[0]
             url2 = "https://account.huami.com/v2/client/login"        
             if "+86" in user:
+                # data2 = {
+                #     "app_name": "com.xiaomi.hm.health",
+                #     "app_version": "5.0.2",
+                #     "code": f"{code}",
+                #     "country_code": "CN",
+                #     "device_id": "10E2A98F-D36F-4DF1-A7B9-3FBD8FBEB800",
+                #     "device_model": "phone",
+                #     "grant_type": "access_token",
+                #     "third_name": "huami_phone",
+                # }
                 data2 = {
                     "app_name": "com.xiaomi.hm.health",
                     "app_version": "5.0.2",
-                    "code": f"{code}",
                     "country_code": "CN",
                     "device_id": "10E2A98F-D36F-4DF1-A7B9-3FBD8FBEB800",
                     "device_model": "phone",
@@ -126,11 +136,25 @@ class MiMotion():
                     "third_name": "huami_phone",
                 }
             if "@" in user:
+                # data2 = {
+                #     "allow_registration=": "false",
+                #     "app_name": "com.xiaomi.hm.health",
+                #     "app_version": "6.5.5",
+                #     "code": f"{code}",
+                #     "country_code": "CN",
+                #     "device_id": "2C8B4939-0CCD-4E94-8CBA-CB8EA6E613A1",
+                #     "device_model": "phone",
+                #     "dn": "api-user.huami.com%2Capi-mifit.huami.com%2Capp-analytics.huami.com",
+                #     "grant_type": "access_token",
+                #     "lang": "zh_CN",
+                #     "os_version": "1.5.0",
+                #     "source": "com.xiaomi.hm.health",
+                #     "third_name": "email",
+                # }
                 data2 = {
                     "allow_registration=": "false",
                     "app_name": "com.xiaomi.hm.health",
                     "app_version": "6.5.5",
-                    "code": f"{code}",
                     "country_code": "CN",
                     "device_id": "2C8B4939-0CCD-4E94-8CBA-CB8EA6E613A1",
                     "device_model": "phone",
