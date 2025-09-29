@@ -107,8 +107,8 @@ class MiMotion():
                 "token": "access",
             }
 
-            print(r1)
             r1 = requests.post(url=url1, data=data1, headers=headers, allow_redirects=False)
+            print(r1)
             location = r1.headers["Location"]
             print(location)
             code_pattern = re.compile("(?<=access=).*?(?=&)")
