@@ -166,6 +166,7 @@ class MiMotion():
                     "third_name": "email",
                 }
             r2 = requests.post(url=url2, data=data2, headers=headers).json()
+            print(r2)
             login_token = r2["token_info"]["login_token"]
             userid = r2["token_info"]["user_id"]
             return login_token, userid
