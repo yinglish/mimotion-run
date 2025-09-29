@@ -109,6 +109,7 @@ class MiMotion():
 
             r1 = requests.post(url=url1, data=data1, headers=headers, allow_redirects=False)
             location = r1.headers["Location"]
+            print(location)
             code_pattern = re.compile("(?<=access=).*?(?=&)")
             code = code_pattern.findall(location)[0]
             url2 = "https://account.huami.com/v2/client/login"        
